@@ -21,11 +21,9 @@ if (!fs.existsSync(uploadsDir)) {
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    // Specify the directory to store the file
     cb(null, uploadsDir);
   },
   filename: function (req, file, cb) {
-    // Specify the filename without the extra curly brace
     cb(null, `${Date.now()}-${file.originalname}`);
   },
 });
